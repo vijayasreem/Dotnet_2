@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "huw6xnKz3HgSQVe2rX1/lrslJeNAMuurFVzIey6VM2KcehAQQAN3kswX77ZqbbqeZ+nTnd5rrxV4JZt72Pb0Mw==",
+  "dgSpecHash": "oxhQLiNfwhxvE0HRK0wIiO93jgxXtOTLN4pnnqEt8KuLL941NToPeCcc8qPzOjID9mD8rNVS06mfV08e2tTA3A==",
   "success": true,
-  "projectFilePath": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1639\\202309275707\\dotnet\\dotnet.Service\\dotnet.Service.csproj",
+  "projectFilePath": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1640\\202309271117\\dotnet\\dotnet.Service\\dotnet.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\inoc\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\inoc\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",

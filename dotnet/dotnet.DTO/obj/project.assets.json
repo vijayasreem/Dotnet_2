@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1639\\202309275707\\dotnet\\dotnet.DTO\\dotnet.DTO.csproj",
+      "projectUniqueName": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1640\\202309271117\\dotnet\\dotnet.DTO\\dotnet.DTO.csproj",
       "projectName": "dotnet.DTO",
-      "projectPath": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1639\\202309275707\\dotnet\\dotnet.DTO\\dotnet.DTO.csproj",
+      "projectPath": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1640\\202309271117\\dotnet\\dotnet.DTO\\dotnet.DTO.csproj",
       "packagesPath": "C:\\Users\\inoc\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1639\\202309275707\\dotnet\\dotnet.DTO\\obj\\",
+      "outputPath": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1640\\202309271117\\dotnet\\dotnet.DTO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\inoc\\AppData\\Roaming\\NuGet\\NuGet.Config",

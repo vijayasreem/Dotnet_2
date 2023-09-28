@@ -1,100 +1,85 @@
 ﻿
-using dotnet.DTO;
-using dotnet.Service;
-using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
+using DotNetNamespace.DTO;
+using DotNetNamespace.Service;
+using Microsoft.AspNetCore.Mvc;
 
-namespace dotnet.API
+namespace DotNetNamespace.API
 {
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly IUserRegistrationService _userRegistrationService;
+        private readonly IUserRepository _userRepository;
 
-        public UserController(IUserRegistrationService userRegistrationService)
+        public UserController(IUserRepository userRepository)
         {
-            _userRegistrationService = userRegistrationService;
+            _userRepository = userRepository;
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateUser(UserRegistrationModel user)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                int userId = await _userRegistrationService.CreateUser(user);
-                return Ok(userId);
+                return BadRequest(ModelState);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+
+            var userId = await _userRepository.CreateUser(user);
+
+            return Ok(userId);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
-            try
-            {
-                var user = await _userRegistrationService.GetUserById(id);
-                if (user == null)
-                    return NotFound();
+            var user = await _userRepository.GetUserById(id);
 
-                return Ok(user);
-            }
-            catch (Exception ex)
+            if (user == null)
             {
-                return BadRequest(ex.Message);
+                return NotFound();
             }
+
+            return Ok(user);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            try
-            {
-                var users = await _userRegistrationService.GetAllUsers();
-                return Ok(users);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var users = await _userRepository.GetAllUsers();
+
+            return Ok(users);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateUser(UserRegistrationModel user)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(int id, UserRegistrationModel user)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                int result = await _userRegistrationService.UpdateUser(user);
-                if (result == 0)
-                    return NotFound();
+                return BadRequest(ModelState);
+            }
 
-                return Ok(result);
-            }
-            catch (Exception ex)
+            var result = await _userRepository.UpdateUser(user);
+
+            if (result == 0)
             {
-                return BadRequest(ex.Message);
+                return NotFound();
             }
+
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            try
-            {
-                int result = await _userRegistrationService.DeleteUser(id);
-                if (result == 0)
-                    return NotFound();
+            var result = await _userRepository.DeleteUser(id);
 
-                return Ok(result);
-            }
-            catch (Exception ex)
+            if (result == 0)
             {
-                return BadRequest(ex.Message);
+                return NotFound();
             }
+
+            return Ok(result);
         }
     }
 }

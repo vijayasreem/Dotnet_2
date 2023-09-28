@@ -1,85 +1,67 @@
 ﻿
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using DotNetNamespace.DTO;
-using DotNetNamespace.Service;
+using dotnet.DTO;
+using dotnet.Service;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DotNetNamespace.API
+namespace dotnet.API
 {
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserRegistrationService _userRegistrationService;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserRegistrationService userRegistrationService)
         {
-            _userRepository = userRepository;
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> CreateUser(UserRegistrationModel user)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var userId = await _userRepository.CreateUser(user);
-
-            return Ok(userId);
+            _userRegistrationService = userRegistrationService;
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserById(int id)
+        public async Task<ActionResult<UserRegistrationModel>> GetUser(int id)
         {
-            var user = await _userRepository.GetUserById(id);
+            var user = await _userRegistrationService.GetUser(id);
 
             if (user == null)
             {
                 return NotFound();
             }
 
-            return Ok(user);
+            return user;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllUsers()
+        public async Task<ActionResult<List<UserRegistrationModel>>> GetUsers()
         {
-            var users = await _userRepository.GetAllUsers();
+            var users = await _userRegistrationService.GetUsers();
+            return users;
+        }
 
-            return Ok(users);
+        [HttpPost]
+        public async Task<ActionResult<int>> CreateUser(UserRegistrationModel user)
+        {
+            var userId = await _userRegistrationService.CreateUser(user);
+            return userId;
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, UserRegistrationModel user)
+        public async Task<ActionResult<int>> UpdateUser(int id, UserRegistrationModel user)
         {
-            if (!ModelState.IsValid)
+            if (id != user.Id)
             {
-                return BadRequest(ModelState);
+                return BadRequest();
             }
 
-            var result = await _userRepository.UpdateUser(user);
-
-            if (result == 0)
-            {
-                return NotFound();
-            }
-
-            return Ok(result);
+            var updatedUser = await _userRegistrationService.UpdateUser(user);
+            return updatedUser;
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<ActionResult<int>> DeleteUser(int id)
         {
-            var result = await _userRepository.DeleteUser(id);
-
-            if (result == 0)
-            {
-                return NotFound();
-            }
-
-            return Ok(result);
+            var deletedUser = await _userRegistrationService.DeleteUser(id);
+            return deletedUser;
         }
     }
 }

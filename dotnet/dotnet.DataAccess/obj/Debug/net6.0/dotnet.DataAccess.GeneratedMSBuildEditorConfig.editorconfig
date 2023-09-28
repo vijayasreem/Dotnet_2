@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = dotnet.DataAccess
-build_property.ProjectDir = E:\Projects\Sacral\dotnet_service\Application.API\SacralAI.Code.Scheduler\bin\Debug\Apps\3\1640\202309284716\dotnet\dotnet.DataAccess\
+build_property.ProjectDir = D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DataAccess\

@@ -1820,37 +1820,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\inoc\\.nuget\\packages\\": {}
+    "C:\\Users\\mmadipally\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1640\\202309284716\\dotnet\\dotnet.Service\\dotnet.Service.csproj",
+      "projectUniqueName": "D:\\Amar\\20230928_Debug\\Apps\\3\\1640\\202309284912\\dotnet\\dotnet.Service\\dotnet.Service.csproj",
       "projectName": "dotnet.Service",
-      "projectPath": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1640\\202309284716\\dotnet\\dotnet.Service\\dotnet.Service.csproj",
-      "packagesPath": "C:\\Users\\inoc\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1640\\202309284716\\dotnet\\dotnet.Service\\obj\\",
+      "projectPath": "D:\\Amar\\20230928_Debug\\Apps\\3\\1640\\202309284912\\dotnet\\dotnet.Service\\dotnet.Service.csproj",
+      "packagesPath": "C:\\Users\\mmadipally\\.nuget\\packages\\",
+      "outputPath": "D:\\Amar\\20230928_Debug\\Apps\\3\\1640\\202309284912\\dotnet\\dotnet.Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\inoc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\mmadipally\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1640\\202309284716\\dotnet\\dotnet.DataAccess\\dotnet.DataAccess.csproj": {
-              "projectPath": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1640\\202309284716\\dotnet\\dotnet.DataAccess\\dotnet.DataAccess.csproj"
+            "D:\\Amar\\20230928_Debug\\Apps\\3\\1640\\202309284912\\dotnet\\dotnet.DataAccess\\dotnet.DataAccess.csproj": {
+              "projectPath": "D:\\Amar\\20230928_Debug\\Apps\\3\\1640\\202309284912\\dotnet\\dotnet.DataAccess\\dotnet.DataAccess.csproj"
             },
-            "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1640\\202309284716\\dotnet\\dotnet.DTO\\dotnet.DTO.csproj": {
-              "projectPath": "E:\\Projects\\Sacral\\dotnet_service\\Application.API\\SacralAI.Code.Scheduler\\bin\\Debug\\Apps\\3\\1640\\202309284716\\dotnet\\dotnet.DTO\\dotnet.DTO.csproj"
+            "D:\\Amar\\20230928_Debug\\Apps\\3\\1640\\202309284912\\dotnet\\dotnet.DTO\\dotnet.DTO.csproj": {
+              "projectPath": "D:\\Amar\\20230928_Debug\\Apps\\3\\1640\\202309284912\\dotnet\\dotnet.DTO\\dotnet.DTO.csproj"
             }
           }
         }
@@ -1875,12 +1873,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.16, 6.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.16, 6.0.16]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.16, 6.0.16]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

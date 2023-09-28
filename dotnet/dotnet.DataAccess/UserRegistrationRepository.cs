@@ -1,158 +1,172 @@
-﻿using dotnet.DTO;
-using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Threading.Tasks;
+using dotnet.DTO;
+using MySql.Data.MySqlClient;
 
 namespace dotnet.Repository
 {
     public class UserRegistrationRepository : IUserRegistrationService
     {
-        private readonly string connectionString;
+        private readonly string _connectionString;
 
         public UserRegistrationRepository(string connectionString)
         {
-            this.connectionString = connectionString;
+            _connectionString = connectionString;
         }
 
         public async Task<int> CreateUser(UserRegistrationModel user)
         {
-            using (var connection = new MySqlConnection(connectionString))
+            using (var connection = new MySqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
 
                 var query = "INSERT INTO UserRegistration (Username, FirstName, LastName, EmailAddress, MobileNumber, PhoneNumber, Role, Level, Notes, IsActive) " +
                             "VALUES (@Username, @FirstName, @LastName, @EmailAddress, @MobileNumber, @PhoneNumber, @Role, @Level, @Notes, @IsActive)";
 
-                using (var command = new MySqlCommand(query, connection))
+                var parameters = new MySqlParameter[]
                 {
-                    command.Parameters.AddWithValue("@Username", user.Username);
-                    command.Parameters.AddWithValue("@FirstName", user.FirstName);
-                    command.Parameters.AddWithValue("@LastName", user.LastName);
-                    command.Parameters.AddWithValue("@EmailAddress", user.EmailAddress);
-                    command.Parameters.AddWithValue("@MobileNumber", user.MobileNumber);
-                    command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
-                    command.Parameters.AddWithValue("@Role", user.Role);
-                    command.Parameters.AddWithValue("@Level", user.Level);
-                    command.Parameters.AddWithValue("@Notes", user.Notes);
-                    command.Parameters.AddWithValue("@IsActive", user.IsActive);
+                    new MySqlParameter("@Username", user.Username),
+                    new MySqlParameter("@FirstName", user.FirstName),
+                    new MySqlParameter("@LastName", user.LastName),
+                    new MySqlParameter("@EmailAddress", user.EmailAddress),
+                    new MySqlParameter("@MobileNumber", user.MobileNumber),
+                    new MySqlParameter("@PhoneNumber", user.PhoneNumber),
+                    new MySqlParameter("@Role", user.Role),
+                    new MySqlParameter("@Level", user.Level),
+                    new MySqlParameter("@Notes", user.Notes),
+                    new MySqlParameter("@IsActive", user.IsActive)
+                };
 
-                    return await command.ExecuteNonQueryAsync();
-                }
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.AddRange(parameters);
+
+                return await command.ExecuteNonQueryAsync();
             }
         }
 
-        public async Task<UserRegistrationModel> GetUserById(int id)
+        public async Task<UserRegistrationModel> GetUser(int id)
         {
-            using (var connection = new MySqlConnection(connectionString))
+            using (var connection = new MySqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
 
                 var query = "SELECT * FROM UserRegistration WHERE Id = @Id";
-                using (var command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Id", id);
+                var parameter = new MySqlParameter("@Id", id);
 
-                    using (var reader = await command.ExecuteReaderAsync())
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.Add(parameter);
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    if (await reader.ReadAsync())
                     {
-                        if (await reader.ReadAsync())
+                        return new UserRegistrationModel
                         {
-                            return MapUserFromReader(reader);
-                        }
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Username = reader["Username"].ToString(),
+                            FirstName = reader["FirstName"].ToString(),
+                            LastName = reader["LastName"].ToString(),
+                            EmailAddress = reader["EmailAddress"].ToString(),
+                            MobileNumber = reader["MobileNumber"].ToString(),
+                            PhoneNumber = reader["PhoneNumber"].ToString(),
+                            Role = reader["Role"].ToString(),
+                            Level = reader["Level"].ToString(),
+                            Notes = reader["Notes"].ToString(),
+                            IsActive = Convert.ToBoolean(reader["IsActive"])
+                        };
                     }
                 }
-            }
 
-            return null;
+                return null;
+            }
         }
 
-        public async Task<List<UserRegistrationModel>> GetAllUsers()
+        public async Task<List<UserRegistrationModel>> GetUsers()
         {
-            var users = new List<UserRegistrationModel>();
-
-            using (var connection = new MySqlConnection(connectionString))
+            using (var connection = new MySqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
 
                 var query = "SELECT * FROM UserRegistration";
-                using (var command = new MySqlCommand(query, connection))
+
+                var command = new MySqlCommand(query, connection);
+
+                using (var reader = await command.ExecuteReaderAsync())
                 {
-                    using (var reader = await command.ExecuteReaderAsync())
+                    var users = new List<UserRegistrationModel>();
+
+                    while (await reader.ReadAsync())
                     {
-                        while (await reader.ReadAsync())
+                        var user = new UserRegistrationModel
                         {
-                            var user = MapUserFromReader(reader);
-                            users.Add(user);
-                        }
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Username = reader["Username"].ToString(),
+                            FirstName = reader["FirstName"].ToString(),
+                            LastName = reader["LastName"].ToString(),
+                            EmailAddress = reader["EmailAddress"].ToString(),
+                            MobileNumber = reader["MobileNumber"].ToString(),
+                            PhoneNumber = reader["PhoneNumber"].ToString(),
+                            Role = reader["Role"].ToString(),
+                            Level = reader["Level"].ToString(),
+                            Notes = reader["Notes"].ToString(),
+                            IsActive = Convert.ToBoolean(reader["IsActive"])
+                        };
+
+                        users.Add(user);
                     }
+
+                    return users;
                 }
             }
-
-            return users;
         }
 
         public async Task<int> UpdateUser(UserRegistrationModel user)
         {
-            using (var connection = new MySqlConnection(connectionString))
+            using (var connection = new MySqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
 
                 var query = "UPDATE UserRegistration SET Username = @Username, FirstName = @FirstName, LastName = @LastName, " +
-                            "EmailAddress = @EmailAddress, MobileNumber = @MobileNumber, PhoneNumber = @PhoneNumber, Role = @Role, " +
-                            "Level = @Level, Notes = @Notes, IsActive = @IsActive WHERE Id = @Id";
+                            "EmailAddress = @EmailAddress, MobileNumber = @MobileNumber, PhoneNumber = @PhoneNumber, " +
+                            "Role = @Role, Level = @Level, Notes = @Notes, IsActive = @IsActive WHERE Id = @Id";
 
-                using (var command = new MySqlCommand(query, connection))
+                var parameters = new MySqlParameter[]
                 {
-                    command.Parameters.AddWithValue("@Username", user.Username);
-                    command.Parameters.AddWithValue("@FirstName", user.FirstName);
-                    command.Parameters.AddWithValue("@LastName", user.LastName);
-                    command.Parameters.AddWithValue("@EmailAddress", user.EmailAddress);
-                    command.Parameters.AddWithValue("@MobileNumber", user.MobileNumber);
-                    command.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
-                    command.Parameters.AddWithValue("@Role", user.Role);
-                    command.Parameters.AddWithValue("@Level", user.Level);
-                    command.Parameters.AddWithValue("@Notes", user.Notes);
-                    command.Parameters.AddWithValue("@IsActive", user.IsActive);
-                    command.Parameters.AddWithValue("@Id", user.Id);
+                    new MySqlParameter("@Username", user.Username),
+                    new MySqlParameter("@FirstName", user.FirstName),
+                    new MySqlParameter("@LastName", user.LastName),
+                    new MySqlParameter("@EmailAddress", user.EmailAddress),
+                    new MySqlParameter("@MobileNumber", user.MobileNumber),
+                    new MySqlParameter("@PhoneNumber", user.PhoneNumber),
+                    new MySqlParameter("@Role", user.Role),
+                    new MySqlParameter("@Level", user.Level),
+                    new MySqlParameter("@Notes", user.Notes),
+                    new MySqlParameter("@IsActive", user.IsActive),
+                    new MySqlParameter("@Id", user.Id)
+                };
 
-                    return await command.ExecuteNonQueryAsync();
-                }
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.AddRange(parameters);
+
+                return await command.ExecuteNonQueryAsync();
             }
         }
 
         public async Task<int> DeleteUser(int id)
         {
-            using (var connection = new MySqlConnection(connectionString))
+            using (var connection = new MySqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
 
                 var query = "DELETE FROM UserRegistration WHERE Id = @Id";
-                using (var command = new MySqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Id", id);
+                var parameter = new MySqlParameter("@Id", id);
 
-                    return await command.ExecuteNonQueryAsync();
-                }
+                var command = new MySqlCommand(query, connection);
+                command.Parameters.Add(parameter);
+
+                return await command.ExecuteNonQueryAsync();
             }
-        }
-
-        private UserRegistrationModel MapUserFromReader(IDataReader reader)
-        {
-            return new UserRegistrationModel
-            {
-                Id = Convert.ToInt32(reader["Id"]),
-                Username = reader["Username"].ToString(),
-                FirstName = reader["FirstName"].ToString(),
-                LastName = reader["LastName"].ToString(),
-                EmailAddress = reader["EmailAddress"].ToString(),
-                MobileNumber = reader["MobileNumber"].ToString(),
-                PhoneNumber = reader["PhoneNumber"].ToString(),
-                Role = reader["Role"].ToString(),
-                Level = reader["Level"].ToString(),
-                Notes = reader["Notes"].ToString(),
-                IsActive = Convert.ToBoolean(reader["IsActive"])
-            };
         }
     }
 }

@@ -31,3 +31,15 @@ E:\Projects\Sacral\dotnet_service\Application.API\SacralAI.Code.Scheduler\bin\De
 E:\Projects\Sacral\dotnet_service\Application.API\SacralAI.Code.Scheduler\bin\Debug\Apps\3\1640\202309284716\dotnet\dotnet.DTO\obj\Debug\net6.0\refint\dotnet.DTO.dll
 E:\Projects\Sacral\dotnet_service\Application.API\SacralAI.Code.Scheduler\bin\Debug\Apps\3\1640\202309284716\dotnet\dotnet.DTO\obj\Debug\net6.0\dotnet.DTO.pdb
 E:\Projects\Sacral\dotnet_service\Application.API\SacralAI.Code.Scheduler\bin\Debug\Apps\3\1640\202309284716\dotnet\dotnet.DTO\obj\Debug\net6.0\ref\dotnet.DTO.dll
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\bin\Debug\net6.0\dotnet.DTO.deps.json
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\bin\Debug\net6.0\dotnet.DTO.dll
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\bin\Debug\net6.0\dotnet.DTO.pdb
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\obj\Debug\net6.0\dotnet.DTO.csproj.AssemblyReference.cache
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\obj\Debug\net6.0\dotnet.DTO.GeneratedMSBuildEditorConfig.editorconfig
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\obj\Debug\net6.0\dotnet.DTO.AssemblyInfoInputs.cache
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\obj\Debug\net6.0\dotnet.DTO.AssemblyInfo.cs
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\obj\Debug\net6.0\dotnet.DTO.csproj.CoreCompileInputs.cache
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\obj\Debug\net6.0\dotnet.DTO.dll
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\obj\Debug\net6.0\refint\dotnet.DTO.dll
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\obj\Debug\net6.0\dotnet.DTO.pdb
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DTO\obj\Debug\net6.0\ref\dotnet.DTO.dll

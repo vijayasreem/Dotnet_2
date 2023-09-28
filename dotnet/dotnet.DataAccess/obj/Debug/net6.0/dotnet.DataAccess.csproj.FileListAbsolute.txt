@@ -29,3 +29,11 @@ E:\Projects\Sacral\dotnet_service\Application.API\SacralAI.Code.Scheduler\bin\De
 E:\Projects\Sacral\dotnet_service\Application.API\SacralAI.Code.Scheduler\bin\Debug\Apps\3\1640\202309284716\dotnet\dotnet.DataAccess\obj\Debug\net6.0\dotnet.DataAccess.dll
 E:\Projects\Sacral\dotnet_service\Application.API\SacralAI.Code.Scheduler\bin\Debug\Apps\3\1640\202309284716\dotnet\dotnet.DataAccess\obj\Debug\net6.0\refint\dotnet.DataAccess.dll
 E:\Projects\Sacral\dotnet_service\Application.API\SacralAI.Code.Scheduler\bin\Debug\Apps\3\1640\202309284716\dotnet\dotnet.DataAccess\obj\Debug\net6.0\dotnet.DataAccess.pdb
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DataAccess\obj\Debug\net6.0\dotnet.DataAccess.csproj.AssemblyReference.cache
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DataAccess\obj\Debug\net6.0\dotnet.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DataAccess\obj\Debug\net6.0\dotnet.DataAccess.AssemblyInfoInputs.cache
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DataAccess\obj\Debug\net6.0\dotnet.DataAccess.AssemblyInfo.cs
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DataAccess\obj\Debug\net6.0\dotnet.DataAccess.csproj.CoreCompileInputs.cache
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DataAccess\obj\Debug\net6.0\dotnet.DataAccess.dll
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DataAccess\obj\Debug\net6.0\refint\dotnet.DataAccess.dll
+D:\Amar\20230928_Debug\Apps\3\1640\202309284912\dotnet\dotnet.DataAccess\obj\Debug\net6.0\dotnet.DataAccess.pdb
